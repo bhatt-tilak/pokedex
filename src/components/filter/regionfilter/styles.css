@@ -1,0 +1,9 @@
+.regionfilter__title {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin-bottom: 0px;
+}
+
+.regionfilter__option-name {
+  text-transform: capitalize;
+}

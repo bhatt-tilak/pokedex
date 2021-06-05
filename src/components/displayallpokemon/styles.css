@@ -1,0 +1,23 @@
+.displayallpokemon__pagination {
+  margin: 40px 0px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayallpokemon__pagination .ant-pagination-item {
+  background-color: rgb(29, 132, 139);
+}
+.displayallpokemon__pagination .ant-pagination-item a {
+  color: #fff;
+}
+.displayallpokemon__pagination .ant-pagination-item-active {
+  background-color: rgb(14, 228, 243);
+  border: 1px solid rgb(133, 133, 133);
+}
+
+.displayallpokemon__pagination .ant-pagination-item-active a {
+  color: rgb(32, 32, 32);
+}
