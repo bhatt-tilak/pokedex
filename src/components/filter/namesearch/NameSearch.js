@@ -11,7 +11,7 @@ const { Search } = Input;
 
 export default function NameSearch(props) {
   const { setFilteredList, setFilteringList } = props;
-  const { pokemonDisplayList, filteredList } = props;
+  const { pokemonDisplayList } = props;
 
   const [listOfAllItems, setListOfAllItems] = useState(null);
   let [searchKeyword, setSearchKeyword] = useState(null);
@@ -26,10 +26,7 @@ export default function NameSearch(props) {
       });
       setListOfAllItems(z);
     }
-    if (filteredList && filteredList.length > 0) {
-      setListOfAllItems(filteredList);
-    }
-  }, [pokemonDisplayList, filteredList]);
+  }, [pokemonDisplayList]);
 
   const onSearch = (keyword) => {
     if (keyword.length < 1) {

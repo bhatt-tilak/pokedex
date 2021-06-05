@@ -220,7 +220,6 @@ export default function Home() {
                 setFilteredList={setFilteredList}
                 setFilteringList={setFilteringList}
                 pokemonDisplayList={pokemonDisplayList}
-                filteredList={filteredList}
               />
             )}
           </div>
