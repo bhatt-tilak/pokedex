@@ -45,9 +45,16 @@ export default function NameSearch(props) {
   };
 
   const handleSearchPokemon = (pokeName, list) => {
-    let x = pokeName.toUpperCase();
     console.log(list);
-    let newList = list.filter((item) => item.toUpperCase().indexOf(x) > -1);
+    let b = pokeName.toUpperCase();
+
+    var newList = list.filter((item) => {
+      let a = item.toUpperCase();
+      return a.includes(b);
+    });
+    // let newList = list.filter((item) =>
+    //   item.toUpperCase().inclues(pokeName.toUpperCase())
+    // );
 
     console.log(newList);
     setFilteringList(false);
