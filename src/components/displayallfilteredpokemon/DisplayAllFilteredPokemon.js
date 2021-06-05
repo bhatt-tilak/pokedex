@@ -63,7 +63,7 @@ export default function DisplayAllFilteredPokemon(props) {
   return (
     <div className="displayallpokemon__container">
       <Row gutter={[16, 16]}>
-        {pokemonDisplayList.length < 1 && <p>No Results</p>}
+        {/* {pokemonDisplayList.length < 1 && <p>No Results</p>} */}
 
         {truncatedList &&
           truncatedList.map((pokeName) => {

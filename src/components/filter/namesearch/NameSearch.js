@@ -11,30 +11,61 @@ const { Search } = Input;
 
 export default function NameSearch(props) {
   const { setFilteredList, setFilteringList } = props;
+  const { pokemonDisplayList, filteredList } = props;
 
+  const [listOfAllItems, setListOfAllItems] = useState(null);
   let [searchKeyword, setSearchKeyword] = useState(null);
 
-  const onSearch = (keyword) => {
-    if (keyword.length < 1) return;
-    console.log(keyword);
+  //  list of  all items  set
 
+  useEffect(() => {
+    let z = [];
+    if (pokemonDisplayList && pokemonDisplayList.length > 0) {
+      pokemonDisplayList.map((item) => {
+        z.push(item.name);
+      });
+      setListOfAllItems(z);
+    }
+    if (filteredList && filteredList.length > 0) {
+      setListOfAllItems(filteredList);
+    }
+  }, [pokemonDisplayList, filteredList]);
+
+  const onSearch = (keyword) => {
+    if (keyword.length < 1) {
+      setFilteredList(false);
+      setFilteredList(false);
+      return;
+    }
+
+    // set  filtering
     setFilteringList(true);
     setSearchKeyword(keyword);
 
-    handleSearchPokemon(keyword);
+    if (listOfAllItems) {
+      handleSearchPokemon(keyword, listOfAllItems);
+    }
   };
 
-  const handleSearchPokemon = (pokeName) => {
-    let url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
+  const handleSearchPokemon = (pokeName, list) => {
+    let x = pokeName.toUpperCase();
+    console.log(list);
+    let newList = list.filter((item) => item.toUpperCase().indexOf(x) > -1);
 
-    pokeRequests.fetchFromUrl(url).then((res) => {
-      console.log(res);
-    });
+    console.log(newList);
+    setFilteringList(false);
+    setFilteredList(newList);
   };
-
   return (
     <div>
-      <Search placeholder="input search text" onSearch={onSearch} enterButton />
+      <Search
+        placeholder="input search text"
+        onSearch={onSearch}
+        onChange={(e) => {
+          onSearch(e.target.value);
+        }}
+        enterButton
+      />
     </div>
   );
 }

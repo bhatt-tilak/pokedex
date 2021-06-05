@@ -219,6 +219,8 @@ export default function Home() {
               <NameSearch
                 setFilteredList={setFilteredList}
                 setFilteringList={setFilteringList}
+                pokemonDisplayList={pokemonDisplayList}
+                filteredList={filteredList}
               />
             )}
           </div>
